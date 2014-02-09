@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/DataTables/media/css/jquery.dataTables.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/css-spinners/css/spinner/timer.css" type="text/css">
+    <link href="ui/css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="container-fluid">
+
+  {{ content }}
+
+  </div>
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/DataTables/media/js/jquery.dataTables.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('table').dataTable( {
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "sAjaxSource": 'data/empresas.json',
+            "oLanguage": {
+                "sLoadingRecords": "Espera...!",
+                "sProcessing": "<div class='timer'></div><br />Trabajando....",
+                "sSearch": "Buscar: ",
+                "sZeroRecords": "Nada!",
+                "sLengthMenu": "Mostrar _MENU_ por página",
+                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ filas",
+                "sInfoEmpty": "",
+                "sInfoFiltered": "",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sPrevious": "Anterior",
+                    "sNext": "Próximo",
+                    "sLast": "Final"
+                }
+            }
+        });
+    });
+    </script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+{% if site.mode == 'development' %}
+    <!-- only when running the Jekyll server -->
+    <script src="http://localhost:35729/livereload.js"></script>
+{% endif %}
+  </body>
+</html>
+

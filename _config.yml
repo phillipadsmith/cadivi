@@ -1,0 +1,7 @@
+name: cadivi.github.io
+markdown: redcarpet
+pygments: true
+exclude:
+- bower.json
+- README.md
+- node_modules

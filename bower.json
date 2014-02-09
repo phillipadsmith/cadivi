@@ -1,0 +1,25 @@
+{
+    "name": "cadivi.github.io",
+    "version": "0.0.1",
+    "authors": [
+        "Phillip Smith <ps@phillipadsmith.com>",
+        "Emilia Díaz-Struck"
+    ],
+    "description": "CADIVI tabla de datos",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "~3.1.0",
+        "DataTables": "~1.9.4",
+        "css-spinners": "~1.0.1"
+    },
+    "resolutions": {
+        "jquery": ">= 1.9.0"
+    }
+}

@@ -1,0 +1,4 @@
+.DS_Store
+.gitignore:w
+_site
+node_modules
