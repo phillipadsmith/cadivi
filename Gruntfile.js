@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             },
             html: {
                 files: ['!**/node_modules/**', '!**/bower_components/**', '!**/_site/bower_components/**', '**/*.html'],
-                tasks: [],
+                tasks: ['jekyll:dist'],
                 options: {
                     livereload: true,
                     debounceDelay: 300,
@@ -59,6 +59,29 @@ module.exports = function(grunt) {
         },
         jsbeautifier: {
             files: ['!**/node_modules/**', '!**/bower_components/**', 'ui/js/*.js', '*.json', 'Gruntfile.js']
+        },
+        jekyll: { // Task
+            options: { // Universal options
+            },
+            dist: { // Target
+                options: { // Target options
+                    config: '_config.yml,_config.dev.yml'
+                }
+            },
+            serve: { // Another target
+                options: {
+                    drafts: true,
+                    serve: true
+                }
+            }
+        },
+     connect: {
+          server: {
+            options: {
+              port: 4000,
+              base: '_site'
+            }
+          }
         }
     });
 
@@ -67,8 +90,10 @@ module.exports = function(grunt) {
 
     grunt.registerTask('serve', function(target) {
         grunt.task.run([
+            'connect',
             'less:development',
             'jshint',
+            'jekyll:dist',
             'watch'
         ]);
     });
