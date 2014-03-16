@@ -75,13 +75,13 @@ module.exports = function(grunt) {
                 }
             }
         },
-     connect: {
-          server: {
-            options: {
-              port: 4000,
-              base: '_site'
+        connect: {
+            server: {
+                options: {
+                    port: 4000,
+                    base: '_site'
+                }
             }
-          }
         }
     });
 
