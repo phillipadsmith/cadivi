@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+use strict;
+use warnings;
 use Mojo::Loader;
 use Mojo::Template;
 use Mojo::Util qw/ encode slurp spurt /;
@@ -8,17 +10,19 @@ use FindBin '$Bin';
 use utf8::all;
 use autodie;
 use Data::Dumper;
+use Getopt::Long;
 
-# Read the input path and filename from STDIN
-my $file = "$Bin/../data/empresas_clean.csv";
+GetOptions(
+    'input=s'  => \my $input_file,
+    'output=s' => \my $output_file,
+) or die( "Error in command line arguments\n" );
+die( "--input and --output must be specified" )
+    unless $input_file && $output_file;
 
-# Read the output path and filename from STDIN
-my $output_file = shift @ARGV;
-die 'No output file specified' unless $output_file;
 
 my $csv = Text::CSV->new({ binary => 1, eol => $/ });
 
-open my $io, "<", $file;
+open my $io, "<", $input_file;
 
 my $headers = [];
 for my $name ( $csv->column_names($csv->getline ($io)) ) {

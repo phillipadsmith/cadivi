@@ -1,4 +1,5 @@
-name: cadivi.github.io
+name: CADIVI Abierta
+dek: Una tabla de datos investigable por la Comisión de Administration de Divisas.
 markdown: redcarpet
 pygments: true
 exclude:
