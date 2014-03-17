@@ -1,6 +1,48 @@
+@backgroundDark: rgb(40,40,40);
+@textLight: rgb(240,240,240);
+
 body { 
     padding: 20px 0 40px 0;
 }
+
+.tab-content {
+    padding-top: 40px;
+}
+
 .dataTables_processing {
-    height: 200px;
+    height: 100px;
+}
+
+table.dataTable caption {
+    background-color: rgb(147, 178, 34);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+table.dataTable tr.odd td.sorting_1 {
+    background-color: darken(#f9f9f9, 10%);
+}
+table.dataTable tr.even td.sorting_1 {
+    background-color: darken(#ffffff, 10%);
+}
+
+table.dataTable th.empresa, table.dataTable th.rif, table.dataTable th.subtotal, table.dataTable th.total, table.dataTable th.ordinarias, table.dataTable th.otras {
+    background-color: @backgroundDark;
+    color: @textLight;
+}
+
+table.dataTable th.range {
+    background-color: lighten( @backgroundDark, 10%) ;
+    color: @textLight;
+}
+
+table.dataTable th.ordinarias, table.dataTable th.otras {
+
+}
+
+table.dataTable th.sol-mon {
+    background-color: lighten( @backgroundDark, 20%) ;
+    color: @textLight;
 }

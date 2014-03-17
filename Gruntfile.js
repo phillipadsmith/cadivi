@@ -9,7 +9,10 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['!**/node_modules/**', '!**/bower_components/**', 'ui/js/*.js', '*.json', 'Gruntfile.js'],
-                tasks: ['jshint', 'jsbeautifier']
+                tasks: ['jshint', 'jsbeautifier', 'copy:js'],
+                options: {
+                    livereload: true
+                }
             },
             less: {
                 files: ['ui/less/*.less'],
@@ -52,10 +55,23 @@ module.exports = function(grunt) {
                     dest: '_site/',
                     filter: 'isFile'
                 }]
+            },
+            js: {
+                files:
+                // includes files within path
+                [{
+                    expand: true,
+                    src: ['ui/js/*'],
+                    dest: '_site/',
+                    filter: 'isFile'
+                }]
             }
         },
         jshint: {
-            all: ['!**/node_modules/**', '!**/bower_components/**', 'ui/js/*.js', '*.json', 'Gruntfile.js']
+            options: {
+                force: true
+            },
+            all: ['!**/node_modules/**', '!**/bower_components/**', 'ui/js/*.js', '*.json', 'Gruntfile.js'],
         },
         jsbeautifier: {
             files: ['!**/node_modules/**', '!**/bower_components/**', 'ui/js/*.js', '*.json', 'Gruntfile.js']
@@ -75,13 +91,13 @@ module.exports = function(grunt) {
                 }
             }
         },
-     connect: {
-          server: {
-            options: {
-              port: 4000,
-              base: '_site'
+        connect: {
+            server: {
+                options: {
+                    port: 4000,
+                    base: '_site'
+                }
             }
-          }
         }
     });
 

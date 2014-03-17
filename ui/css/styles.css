@@ -1,6 +1,39 @@
 body {
   padding: 20px 0 40px 0;
 }
+.tab-content {
+  padding-top: 40px;
+}
 .dataTables_processing {
-  height: 200px;
+  height: 100px;
+}
+table.dataTable caption {
+  background-color: #93b222;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+}
+table.dataTable tr.odd td.sorting_1 {
+  background-color: #e0e0e0;
+}
+table.dataTable tr.even td.sorting_1 {
+  background-color: #e6e6e6;
+}
+table.dataTable th.empresa,
+table.dataTable th.rif,
+table.dataTable th.subtotal,
+table.dataTable th.total,
+table.dataTable th.ordinarias,
+table.dataTable th.otras {
+  background-color: #282828;
+  color: #f0f0f0;
+}
+table.dataTable th.range {
+  background-color: #424242;
+  color: #f0f0f0;
+}
+table.dataTable th.sol-mon {
+  background-color: #5b5b5b;
+  color: #f0f0f0;
 }

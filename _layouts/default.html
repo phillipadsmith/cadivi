@@ -1,53 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }}</title>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/DataTables/media/css/jquery.dataTables.css" rel="stylesheet">
-    <link rel="stylesheet" href="bower_components/css-spinners/css/spinner/timer.css" type="text/css">
-    <link href="ui/css/styles.css" rel="stylesheet">
-  </head>
-  <body>
-  <div class="container-fluid">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ site.name }} | {{ site.dek }}</title>
+        <link href="bower_components/DataTables/media/css/jquery.dataTables.css" rel="stylesheet">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="bower_components/css-spinners/css/spinner/timer.css" type="text/css">
+        <link href="ui/css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="/">{{ site.name }}</a>
+            </div>
+        </div>
 
-  {{ content }}
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <p><strong>CADIVI Abierta</strong> es una tabla de datos investigable por la Comisión de Administration de Divisas, un órgano regulador adscrito al Ministerio del Poder Popular para la Planificación y Finanzas de la República Bolivariana de Venezuela. Este es un intento de hacer que los documentos existentes disponibles en un formato que es fácil de usar.</p>
+            </div>
+        </div>
 
-  </div>
-    <script src="bower_components/jquery/jquery.min.js"></script>
-    <script src="bower_components/DataTables/media/js/jquery.dataTables.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('table').dataTable( {
-            "sPaginationType": "full_numbers",
-            "bProcessing": true,
-            "sAjaxSource": 'data/empresas.json',
-            "oLanguage": {
-                "sLoadingRecords": "Espera...!",
-                "sProcessing": "<div class='timer'></div><br />Trabajando....",
-                "sSearch": "Buscar: ",
-                "sZeroRecords": "Nada!",
-                "sLengthMenu": "Mostrar _MENU_ por página",
-                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ filas",
-                "sInfoEmpty": "",
-                "sInfoFiltered": "",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sPrevious": "Anterior",
-                    "sNext": "Próximo",
-                    "sLast": "Final"
-                }
-            }
-        });
-    });
-    </script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-{% if site.mode == 'development' %}
-    <!-- only when running the Jekyll server -->
-    <script src="http://localhost:35729/livereload.js"></script>
-{% endif %}
-  </body>
+        <div class="container">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="active empresas_totals" data-source="empresas_totals.json" data-table="empresas_totals"><a href="#empresas_totals" data-toggle="tab">Totales</a></li>
+                <li class="empresas_totals_12" data-source="empresas_totals_12.json" data-table="empresas_totals_12"><a href="#empresas_2012" data-toggle="tab">2012</a></li>
+                <li class="empresas_totals_04-11" data-source="empresas_totals_04-11.json" data-table="empresas_totals_04-11"><a href="#empresas_2004" data-toggle="tab">2004-11</a></li>
+                <li class="empresas_all" data-source="empresas_all.json" data-table="empresas_all"><a href="#empresas_all" data-toggle="tab">Tabla completa</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="empresas_totals">
+                    <table id="empresas_totals" style="display:none;" width="100%" class="table table-bordered table-condensed table-striped table-responsive">
+                        <caption>Totales, 2004-2012</caption> 
+                        <thead>
+                            <tr valign="top">
+                                <th class="empresa" scope="col" rowspan="2">Empresa</th>
+                                <th class="rif" scope="col" rowspan="2">RIF</th>
+                                <th class="total" scope="col" colspan="2">Total General (2004-2012)</th>
+                            </tr>
+                            <tr>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="empresas_2012">
+                    <table id="empresas_totals_12" style="display:none;" width="100%" class="table table-bordered table-condensed table-striped table-responsive">
+                        <caption>Totales, 2012</caption> 
+                        <thead>
+                            <tr valign="top">
+                                <th class="empresa" scope="col" rowspan="2">Empresa</th>
+                                <th class="rif" scope="col" rowspan="2">RIF</th>
+                                <th class="total" scope="col" colspan="2">Total General (2012)</th>
+                            </tr>
+                            <tr>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="tab-pane" id="empresas_2004">
+                    <table id="empresas_totals_04-11" style="display:none;" width="100%" class="table table-bordered table-condensed table-striped table-responsive">
+                        <caption>Totales, 2004-2011</caption> 
+                        <thead>
+                            <tr valign="top">
+                                <th class="empresa" scope="col" rowspan="2">Empresa</th>
+                                <th class="rif" scope="col" rowspan="2">RIF</th>
+                                <th class="total" scope="col" colspan="2">Total General (2004-2011)</th>
+                            </tr>
+                            <tr>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="empresas_all">
+                    <table id="empresas_all" width="100%" class="table table-bordered table-condensed table-striped table-responsive">
+                        <caption>Tabla completa de datos investigable por la Comisión de Administration de Divisas.</caption> 
+                        <thead>
+                            <tr valign="top">
+                                <th class="empresa" scope="col" rowspan="3">Empresa</th>
+                                <th class="rif" scope="col" rowspan="3">RIF</th>
+                                <th class="ordinarias" scope="col" colspan="4">Ordinarias</th>
+                                <th class="subtotal" scope="col" rowspan="2" colspan="2">Subtotal Ordinarias</th>
+                                <th class="otras" scope="col" colspan="4">Otras conceptos</th>
+                                <th class="subtotal" scope="col" rowspan="2" colspan="2">Subtotal Otras conceptos</th>
+                                <th class="total" scope="col" rowspan="2" colspan="2">Total General</th>
+                            </tr>
+                            <tr>
+                                <th class="range" scope="col" colspan="2">2004-2011</th>
+                                <th class="range" scope="col" colspan="2">2012</th>
+                                <th class="range" scope="col" colspan="2">2004-2011</th>
+                                <th class="range" scope="col" colspan="2">2012</th>
+                            </tr>
+                            <tr>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                                <th class="sol-mon" scope="col">Solic</th>
+                                <th class="sol-mon" scope="col">Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <script src="bower_components/jquery/jquery.min.js"></script>
+        <script src="bower_components/DataTables/media/js/jquery.dataTables.js"></script>
+        <script src="/ui/js/site.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        {% if site.mode == 'development' %}
+        <!-- only when running the Jekyll server -->
+        <script src="http://localhost:35729/livereload.js"></script>
+        {% endif %}
+        <script>
+        </script>
+    </body>
 </html>
 
