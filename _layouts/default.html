@@ -16,16 +16,13 @@
                 <a class="navbar-brand" href="/">{{ site.name }}</a>
             </div>
         </div>
-
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <p><strong>CADIVI Abierta</strong> es una tabla de datos investigable por la Comisión de Administration de Divisas, un órgano regulador adscrito al Ministerio del Poder Popular para la Planificación y Finanzas de la República Bolivariana de Venezuela. Este es un intento de hacer que los documentos existentes disponibles en un formato que es fácil de usar.</p>
+                <p><strong>CADIVI Abierta</strong> es una tabla de datos investigable por la Comisión de Administration de Divisas, un órgano regulador adscrito al Ministerio del Poder Popular para la Planificación y Finanzas de la República Bolivariana de Venezuela. Este es un intento de hacer que los documentos existentes disponibles en un formato que es fácil de usar. Preguntas o sugerencias? <a target="_blank" href="http://twitter.com/phillipadsmith">Mándame una nota.</a></p>
             </div>
         </div>
-
         <div class="container">
-
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active empresas_totals" data-source="empresas_totals.json" data-table="empresas_totals"><a href="#empresas_totals" data-toggle="tab">Totales</a></li>
@@ -33,7 +30,6 @@
                 <li class="empresas_totals_04-11" data-source="empresas_totals_04-11.json" data-table="empresas_totals_04-11"><a href="#empresas_2004" data-toggle="tab">2004-11</a></li>
                 <li class="empresas_all" data-source="empresas_all.json" data-table="empresas_all"><a href="#empresas_all" data-toggle="tab">Tabla completa</a></li>
             </ul>
-
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane active" id="empresas_totals">
@@ -132,9 +128,12 @@
                     </table>
                 </div>
             </div>
-
-
         </div>
+        <footer>
+            <div class="container">
+                <p>This site was initially developed as a demonstration during the <a href="http://ipys.org.ve/2014/01/21/ipys-venezuela-y-el-fondo-canadiense-para-iniciativas-locales-invitan-al-taller-de-periodismo-de-datos-en-valencia-y-maracaibo/">IPYS data journalism workshops in Valencia and Maracaibo, Venezuela.</a> The data was extracted from a PDF found on the Comisión de Administration de Divisas Web site. It was subsequently extracted and cleaned and made available here as a simple, static data table. The code for the project is on <a href="https://github.com/phillipadsmith/cadivi">Github here.</a> Improvements welcome.</p>
+            </div>
+        </footer>
         <script src="bower_components/jquery/jquery.min.js"></script>
         <script src="bower_components/DataTables/media/js/jquery.dataTables.js"></script>
         <script src="ui/js/site.js"></script>
@@ -143,8 +142,6 @@
         <!-- only when running the Jekyll server -->
         <script src="http://localhost:35729/livereload.js"></script>
         {% endif %}
-        <script>
-        </script>
     </body>
 </html>
 

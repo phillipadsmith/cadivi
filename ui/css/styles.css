@@ -1,5 +1,11 @@
 body {
-  padding: 20px 0 40px 0;
+  padding: 20px 0 0px 0;
+}
+footer {
+  background-color: #282828;
+  color: #f0f0f0;
+  height: 100px;
+  padding: 20px 0 0 0;
 }
 .tab-content {
   padding-top: 40px;
